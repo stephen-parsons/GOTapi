@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GOT</title>
+
+	<script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<img style="width: 100px;" id="stark" src="gameofthrones/stark.jpg">
+	<img style="width: 100px;" id="targaryen" src="gameofthrones/targaryen.jpg">
+	<img style="width: 100px;" id="lannister" src="gameofthrones/lannister.jpg">
+	<img style="width: 100px;" id="baratheon" src="gameofthrones/baratheon.png">
+
+	<div id="details"></div>
+
+	<script type="text/javascript">
+		
+		var stark = document.getElementById("stark");
+		var targaryen = document.getElementById("targaryen");
+		var lannister = document.getElementById("lannister");
+		var baratheon = document.getElementById("baratheon");
+
+		stark.addEventListener("click", ()=>{
+			$.get("https://www.anapioficeandfire.com/api/houses/?name=House Stark of Winterfell", (data)=>{
+				console.log(data[0]);
+				document.getElementById("details").innerHTML="<p>"+data[0].name+"</p><br>"+"<p>"+data[0].words+"</p><br>"+"<p>"+data[0].titles+"</p><br>";
+			});
+		});
+
+		targaryen.addEventListener("click", ()=>{
+			$.get("https://www.anapioficeandfire.com/api/houses/?name=House Targaryen of King's Landing", (data)=>{
+				console.log(data[0]);
+				document.getElementById("details").innerHTML="<p>"+data[0].name+"</p><br>"+"<p>"+data[0].words+"</p><br>"+"<p>"+data[0].titles+"</p><br>";
+			});
+		});
+
+		lannister.addEventListener("click", ()=>{
+			$.get("https://www.anapioficeandfire.com/api/houses/?name=House Lannister of Casterly Rock", (data)=>{
+				console.log(data[0]);
+				document.getElementById("details").innerHTML="<p>"+data[0].name+"</p><br>"+"<p>"+data[0].words+"</p><br>"+"<p>"+data[0].titles+"</p><br>";
+			});
+		});
+
+		baratheon.addEventListener("click", ()=>{
+			$.get("https://www.anapioficeandfire.com/api/houses/?name=House Baratheon of Storm's End", (data)=>{
+				console.log(data[0]);
+				document.getElementById("details").innerHTML="<p>"+data[0].name+"</p><br>"+"<p>"+data[0].words+"</p><br>"+"<p>"+data[0].titles+"</p><br>";
+			});
+		});
+
+	</script>
+
+</body>
+</html>
